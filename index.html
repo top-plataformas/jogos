@@ -40,11 +40,6 @@
         content="Escolha entre as Top Plataformas para jogar e apostar online com segurança. Aproveite avaliações, bônus, métodos de saque e muito mais em um só lugar.">
     <meta name="twitter:image" content="img/preview.png">
 
-    <link rel="icon" href="img/favicon.png" type="image/png" sizes="32x32">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="index-responsive.css">
-    <title>Top Plataformas para Jogar e Apostar Online</title>
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -69,6 +64,11 @@
         gtag('config', 'G-R26K165MWT');
     </script>
 
+    <link rel="icon" href="img/favicon.png" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index-responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <title>Top Plataformas para Jogar e Apostar Online</title>
 
 </head>
 
@@ -83,8 +83,16 @@
     </div>
 
     <main>
-        <section>
-            <div class="container">
+
+        <section class="container-cards">
+
+            <div class="navegacao">
+                <div class="pagina" id="pagina-atual">Página 1</div>
+                <button id="anterior"><i class="fas fa-chevron-left"></i></button>
+                <button id="proximo"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <div id="paginacao-container" class="container">
 
                 <div class="card">
                     <img src="img/007game.png" alt="007game" />
@@ -352,18 +360,52 @@
                         rel="noopener noreferrer">Cadastrar-se</a>
                 </div>
             </div>
+
+            <div class="mostrar-todos-wrapper">
+                <button id="mostrar-todos">Todos</button>
+            </div>
         </section>
     </main>
 
     <footer>
+        <div class="compartilhar">
+            <h2>🔗 Compartilhe <span>Top Plataformas</span> com seus amigos!</h2>
+            <button class="botao-principal" onclick="toggleRedes()">
+                <i class="fas fa-share-alt"></i> Compartilhar
+            </button>
+
+            <div id="redes-sociais" class="redes">
+                <a class="facebook"
+                    href="https://www.facebook.com/sharer/sharer.php?u=https://top-plataformas.github.io/jogos/"
+                    target="_blank">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                <a class="instagram" href="https://www.instagram.com/seu_usuario" target="_blank"
+                    aria-label="Instagram">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                <a class="tiktok" href="https://www.tiktok.com" target="_blank">
+                    <i class="fab fa-tiktok fa-2x"></i>
+                </a>
+                <a class="whatsapp"
+                    href="https://api.whatsapp.com/send?text=Confira%20as%20Top%20Plataformas:%20https://top-plataformas.github.io/jogos/"
+                    target="_blank">
+                    <i class="fab fa-whatsapp fa-2x"></i>
+                </a>
+                <a class="telegram" href="https://t.me/share/url?url=https://top-plataformas.github.io/jogos/"
+                    target="_blank">
+                    <i class="fab fa-telegram fa-2x"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- QR Code -->
         <div class="qrcode">
-            <h2>📱 Acesse pelo celular</h2>
             <img src="img/qrcode-top-plataformas.jpg" alt="QR Code para acessar o site Top Plataformas">
-            <p>Escaneie o QR Code com a câmera do celular e acesse a página <span>Top Plataformas</span>!
-            </p>
+            <p>Escaneie o QR Code com a câmera do celular e acesse a página <span>Top Plataformas</span>!</p>
         </div>
     </footer>
-
+    <script src="javascript.js"></script>
 </body>
 
 </html>
