@@ -58,11 +58,12 @@ p {
     border-radius: 12px;
     padding: 20px;
     width: 100%;
+    overflow: hidden;
 }
 
 .card img {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     border-radius: 20%;
     margin-bottom: 20px;
     align-self: center;
@@ -107,4 +108,27 @@ footer {
 
 footer .info {
     max-width: 700px;
+}
+
+.qrcode {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.qrcode h2 {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: rgb(0, 188, 242);
+}
+
+.qrcode img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.qrcode p {
+    color: #ccc;
+    max-width: 350px;
+    text-align: center;
 }
