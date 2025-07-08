@@ -1,3 +1,28 @@
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.addEventListener("click", function (e) {
+        const botao = e.target.closest("button, a");
+        if (botao) {
+            gtag("event", "clique_botao", {
+                event_category: "interacao",
+                event_label: botao.innerText || botao.href || "botao_sem_texto"
+            });
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.addEventListener("click", function (e) {
+        const botao = e.target.closest("button, a");
+        if (botao) {
+            gtag("event", "clique_botao", {
+                event_category: "interacao",
+                event_label: botao.innerText || botao.href || "botao_sem_texto"
+            });
+        }
+    });
+});
+
+
 function toggleRedes() {
     const redes = document.getElementById("redes-sociais");
     redes.classList.toggle("ativo");
