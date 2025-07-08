@@ -39,6 +39,7 @@ p {
     font-size: 1rem;
     line-height: 1.75rem;
     color: #ccc;
+    max-width: 600px;
 }
 
 .container-cards {
@@ -60,14 +61,14 @@ p {
     justify-content: space-between;
     background: #222;
     border-radius: 12px;
-    padding: 20px;
+    padding: 20px 10px;
     width: 100%;
     overflow: hidden;
 }
 
 .card img {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
     border-radius: 20%;
     margin-bottom: 20px;
     align-self: center;
@@ -76,7 +77,8 @@ p {
 .card p {
     font-size: 14px;
     line-height: 1.30rem;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    color: #ccc;
 }
 
 .botao {
@@ -142,7 +144,7 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
     gap: 25px;
-    font-size: 0.75rem;
+    font-size: 1rem;
     margin: 20px 0;
 }
 
@@ -173,7 +175,7 @@ footer {
 /*QR CODE*/
 .qrcode {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .qrcode img {
@@ -196,24 +198,35 @@ footer {
     text-align: center;
 }
 
+.container-navegacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
 .navegacao {
     display: flex;
-    justify-content: end;
     align-items: center;
     gap: 20px;
-    margin-bottom: 40px;
+}
+
+.total {
+    font-size: 0.875rem;
+    color: #dd6119;
+    font-weight: bold;
 }
 
 .navegacao button {
     background-color: #28a745;
     color: #ccc;
     border: none;
-    padding: 10px;
+    padding: 5px 7px;
     border-radius: 8px;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    /*width: 7px;
+    height: 7px;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -225,31 +238,31 @@ footer {
 }
 
 .pagina {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: bold;
     color: #ccc;
 }
 
-.mostrar-todos-wrapper {
+.mostrar-todas-wrapper {
     margin-top: 40px;
     display: flex;
     justify-content: center;
 }
 
-#mostrar-todos {
+#mostrar-todas {
     background-color: transparent;
     border: none;
     border-radius: 8px;
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
-    padding: 10px 16px;
+    padding: 10px 32px;
     border: solid 1px #28a745;
     color: #28a745;
     transition: all 0.3s ease;
 }
 
-#mostrar-todos:hover {
+#mostrar-todas:hover {
     background-color: #28a745;
     color: white;
 }

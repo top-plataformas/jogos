@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const proximo = document.getElementById("proximo");
     const paginaAtual = document.getElementById("pagina-atual");
 
+    // ✅ Atualiza o total de plataformas
+    const totalElement = document.querySelector(".total-plataformas .total");
+    if (totalElement) {
+        totalElement.textContent = cards.length;
+        totalElement.textContent = `${cards.length} Plataformas de Jogos`;
+    }
+
     const porPagina = 10;
     let pagina = 1;
     const totalPaginas = Math.ceil(cards.length / porPagina);
@@ -41,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     exibirPagina(pagina);
 
-    const botaoTodos = document.getElementById("mostrar-todos");
+    const botaoTodos = document.getElementById("mostrar-todas");
     let mostrandoTodos = false;
 
     botaoTodos.addEventListener("click", () => {
@@ -50,14 +57,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mostrandoTodos) {
             container.innerHTML = "";
             cards.forEach(card => container.appendChild(card));
-            paginaAtual.textContent = "Mostrar Todos";
+            paginaAtual.textContent = "Mostrar Todas";
             anterior.disabled = true;
             proximo.disabled = true;
             botaoTodos.textContent = "Paginar";
         } else {
             pagina = 1;
             exibirPagina(pagina);
-            botaoTodos.textContent = "Mostrar Todos";
+            botaoTodos.textContent = "Mostrar Todas";
         }
     });
 });
