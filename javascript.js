@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.addEventListener("click", function (e) {
         const botao = e.target.closest("button, a");
         if (botao) {
-            const texto = botao.textContent?.trim() || botao.id || botao.className || botao.href || "botao_desconhecido";
+            const texto = botao.getAttribute("data-label")?.trim()
+                || botao.textContent?.trim()
+                || botao.id
+                || botao.className
+                || botao.href
+                || "botao_desconhecido";
 
             gtag("event", "clique_botao", {
                 event_category: "interacao",
