@@ -70,39 +70,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const botaoTodos = document.getElementById("mostrar-todas");
     const navegacao = document.querySelector(".container-navegacao");
 
-    let mostrandoTodos = false;
+    let mostrandoTodas = false;
 
     botaoTodos.addEventListener("click", () => {
-        mostrandoTodos = !mostrandoTodos;
+        mostrandoTodas = !mostrandoTodas;
 
-        if (mostrandoTodos) {
+        if (mostrandoTodas) {
             container.innerHTML = "";
             cards.forEach(card => container.appendChild(card));
-            paginaAtual.textContent = "Mostrar Todas";
             anterior.disabled = true;
             proximo.disabled = true;
             botaoTodos.textContent = "Paginar";
-            navegacao.style.display = "none"; // 👉 esconde a navegação
         } else {
             pagina = 1;
             exibirPagina(pagina);
-            botaoTodos.textContent = "Mostrar Todas";
-            navegacao.style.display = ""; // 👉 mostra novamente (volta ao padrão)
+            botaoTodos.textContent = "Todas";
         }
     });
 
-    // Botão de Voltar ao Topo
-    const botaoTopo = document.createElement("button");
-    botaoTopo.id = "voltar-topo";
-    botaoTopo.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    botaoTopo.setAttribute("aria-label", "Voltar ao topo");
-    document.body.appendChild(botaoTopo);
+    const botaoTopo = document.getElementById("voltar-topo");
 
     window.addEventListener("scroll", () => {
-        botaoTopo.style.display = window.scrollY > 300 ? "flex" : "none";
+        if (window.scrollY > 800) {
+            botaoTopo.style.display = "flex";
+        } else {
+            botaoTopo.style.display = "none";
+        }
     });
 
     botaoTopo.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "auto" });
     });
+
+
 });

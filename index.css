@@ -210,7 +210,8 @@ footer {
 .navegacao {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    gap: 10px;
 }
 
 .total {
@@ -223,15 +224,10 @@ footer {
     background-color: #28a745;
     color: #ccc;
     border: none;
-    padding: 5px 7px;
-    border-radius: 8px;
-    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.875rem;
     cursor: pointer;
-    /*width: 7px;
-    height: 7px;*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .navegacao button:disabled {
@@ -245,52 +241,14 @@ footer {
     color: #ccc;
 }
 
-.mostrar-todas-wrapper {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
-
 #mostrar-todas {
     background-color: transparent;
     border: none;
-    border-radius: 8px;
     font-weight: bold;
-    font-size: 1rem;
     cursor: pointer;
-    padding: 10px 32px;
-    border: solid 1px #28a745;
+    padding: 0;
+    font-size: 0.875rem;
     color: #28a745;
-    transition: all 0.3s ease;
-}
-
-#mostrar-todas:hover {
-    background-color: #28a745;
-    color: white;
-}
-
-#voltar-topo {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 999;
-    transition: background-color 0.3s;
-    opacity: 0.8;
-}
-
-#voltar-topo:hover {
-    background-color: #218838;
 }
 
 .container.fade-out {
@@ -303,4 +261,26 @@ footer {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.voltar-topo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 500px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.voltar-topo button {
+    color: #128f06;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
 }
