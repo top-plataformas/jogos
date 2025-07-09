@@ -13,6 +13,10 @@ CELULAR PEQUENO
         max-width: 100% !important;
         width: 100% !important;
     }
+
+    .container-navegacao {
+        align-items: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -30,10 +34,6 @@ CELULAR PEQUENO
     .container-navegacao {
         flex-direction: column;
         gap: 20px;
-    }
-
-    .total-plataformas {
-        order: 2;
     }
 }
 

@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalElement = document.querySelector(".total-plataformas .total");
     if (totalElement) {
         totalElement.textContent = cards.length;
-        totalElement.textContent = `${cards.length} Plataformas de Jogos`;
+        totalElement.textContent = `Total: ${cards.length}`;
     }
 
     const porPagina = 10;
@@ -68,6 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
     exibirPagina(pagina);
 
     const botaoTodos = document.getElementById("mostrar-todas");
+    const navegacao = document.querySelector(".container-navegacao");
+
     let mostrandoTodos = false;
 
     botaoTodos.addEventListener("click", () => {
@@ -80,10 +82,27 @@ document.addEventListener("DOMContentLoaded", () => {
             anterior.disabled = true;
             proximo.disabled = true;
             botaoTodos.textContent = "Paginar";
+            navegacao.style.display = "none"; // 👉 esconde a navegação
         } else {
             pagina = 1;
             exibirPagina(pagina);
             botaoTodos.textContent = "Mostrar Todas";
+            navegacao.style.display = ""; // 👉 mostra novamente (volta ao padrão)
         }
+    });
+
+    // Botão de Voltar ao Topo
+    const botaoTopo = document.createElement("button");
+    botaoTopo.id = "voltar-topo";
+    botaoTopo.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    botaoTopo.setAttribute("aria-label", "Voltar ao topo");
+    document.body.appendChild(botaoTopo);
+
+    window.addEventListener("scroll", () => {
+        botaoTopo.style.display = window.scrollY > 300 ? "flex" : "none";
+    });
+
+    botaoTopo.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
