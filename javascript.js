@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const botaoTopo = document.getElementById("voltar-topo");
 
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 800) {
+        if (window.scrollY > 840) {
             botaoTopo.style.display = "flex";
         } else {
             botaoTopo.style.display = "none";
