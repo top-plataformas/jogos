@@ -33,7 +33,7 @@ function copiarLink() {
         setTimeout(() => {
             span.textContent = "Copiar Link";
             span.style.color = "";
-        }, 3000);
+        }, 5000);
     });
 }
 
