@@ -17,11 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function toggleRedes() {
+/*function toggleRedes() {
     const redes = document.getElementById("redes-sociais");
     redes.classList.toggle("ativo");
     redes.style.display = redes.style.display === "flex" ? "none" : "flex";
-}
+}*/
 
 function copiarLink() {
     const url = "https://top-plataformas.github.io/jogos/";
@@ -37,6 +37,17 @@ function copiarLink() {
     });
 }
 
+function compartilharSite() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Top Plataformas',
+            text: 'Confira as Top Plataformas para jogar e apostar online!',
+            url: 'https://top-plataformas.github.io/jogos/'
+        }).catch((error) => console.log('Erro ao compartilhar:', error));
+    } else {
+        alert('Compartilhamento não suportado neste navegador. Copie o link manualmente.');
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const cards = Array.from(document.querySelectorAll(".card"));
