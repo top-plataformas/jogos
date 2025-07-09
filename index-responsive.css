@@ -17,9 +17,17 @@ CELULAR PEQUENO
     .container-navegacao {
         align-items: center;
     }
+
+    .copiar-link {
+        padding: 10px 0px;
+    }
+
+    .copiar-link p {
+        order: 1;
+    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
 
     main {
         padding: 50px 20px;
@@ -35,23 +43,26 @@ CELULAR PEQUENO
         flex-direction: column;
         gap: 20px;
     }
+
+    .copiar-link p {
+        order: 1;
+    }
 }
 
 /*=========================================================
 CELULAR MÉDIO / GRANDE (TIPO IPHONE PLUS, GALAXY S, ETC.)
 =========================================================*/
-@media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
 
     main {
         padding: 50px 20px;
     }
 
     .container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         max-width: 100%;
         width: 100%;
     }
-
 }
 
 /*=========================================================
@@ -60,7 +71,7 @@ TABLET VERTICAL (IPAD EM PÉ, POR EXEMPLO)
 @media (min-width: 767.1px) and (max-width: 1023px) {
 
     main {
-        padding: 50px 20px;
+        padding: 50px;
     }
 
     .container {
@@ -77,7 +88,7 @@ DESKTOP PADRÃO / TABLET DEITADO
 @media (min-width: 1024px) and (max-width: 1279px) {
 
     main {
-        padding: 50px 20px;
+        padding: 50px;
     }
 
     .container {

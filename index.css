@@ -136,21 +136,59 @@ footer {
     margin-right: 8px;
 }
 
-/* Redes Sociais */
-.redes {
-    overflow: hidden;
-    max-height: 0;
+.container-redes-sociais {
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.copiar-link {
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: solid 1px #444;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+        flex-wrap: wrap;
+
+}
+
+.copiar-link p {
+    color: #003366;
+}
+
+.copiar-container {
+    display: flex;
+    gap: 5px;
+
+}
+
+.copiar {
+    color: #ccc;
+}
+
+.copiar-link i {
+    color: #ccc;
+}
+
+.redes {
+    /*overflow: hidden;*/
+    /*max-height: 0;*/
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 25px;
     font-size: 1rem;
-    margin: 20px 0;
 }
 
-.redes.ativo {
+/*.redes.ativo {
     max-height: 500px;
-}
+}*/
 
 .facebook {
     color: rgb(24, 119, 242);
@@ -278,9 +316,15 @@ footer {
 }
 
 .voltar-topo button {
-    color: #128f06;
+    color: chartreuse;
     background-color: transparent;
     border: none;
     font-size: 1rem;
     cursor: pointer;
+}
+
+.voltar-topo p {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: chartreuse;
 }

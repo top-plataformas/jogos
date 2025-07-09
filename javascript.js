@@ -23,6 +23,21 @@ function toggleRedes() {
     redes.style.display = redes.style.display === "flex" ? "none" : "flex";
 }
 
+function copiarLink() {
+    const url = "https://top-plataformas.github.io/jogos/";
+    navigator.clipboard.writeText(url).then(() => {
+        const span = document.querySelector(".copiar");
+        span.textContent = "Link Copiado";
+        span.style.color = "#128f06";
+
+        setTimeout(() => {
+            span.textContent = "Copiar Link";
+            span.style.color = "";
+        }, 3000);
+    });
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const cards = Array.from(document.querySelectorAll(".card"));
     const container = document.getElementById("paginacao-container");
@@ -101,6 +116,4 @@ document.addEventListener("DOMContentLoaded", () => {
     botaoTopo.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "auto" });
     });
-
-
 });
