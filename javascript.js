@@ -40,8 +40,6 @@ function copiarLink() {
 function compartilharSite() {
     if (navigator.share) {
         navigator.share({
-            title: 'Top Plataformas',
-            text: 'Confira as Top Plataformas para jogar e apostar online!',
             url: 'https://top-plataformas.github.io/jogos/'
         }).catch((error) => console.log('Erro ao compartilhar:', error));
     } else {
