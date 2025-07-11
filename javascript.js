@@ -40,7 +40,7 @@ function copiarLink() {
 function compartilharSite() {
     if (navigator.share) {
         navigator.share({
-            title: "Top Plataformas 🎰",
+            title: "💥 Top Plataformas para 🎮 Jogar e Apostar 💸 Online",
             text: "💥 Bônus imperdíveis, 🎮 jogos emocionantes e saques rápidos 💳! Conheça agora as melhores plataformas para apostar com segurança 🔒.",
             url: 'https://top-plataformas.github.io/jogos/'
         }).catch((error) => console.log('Erro ao compartilhar:', error));
