@@ -25,6 +25,10 @@ CELULAR PEQUENO
     .copiar-link p {
         order: 1;
     }
+
+    .titulo-secao {
+        text-align: center;
+    }
 }
 
 @media (max-width: 479px) {

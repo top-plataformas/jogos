@@ -324,3 +324,17 @@ footer {
     font-weight: bold;
     color: chartreuse;
 }
+
+.grupo-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-cards .container {
+    margin-bottom: 60px;
+}
+
+.titulo-secao {
+    text-align: start;
+    margin-bottom: 40px;
+}

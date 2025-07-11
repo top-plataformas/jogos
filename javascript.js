@@ -50,20 +50,57 @@ function compartilharSite() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    // 📦 Seleção de elementos
     const cards = Array.from(document.querySelectorAll(".card"));
     const container = document.getElementById("paginacao-container");
     const anterior = document.getElementById("anterior");
     const proximo = document.getElementById("proximo");
     const paginaAtual = document.getElementById("pagina-atual");
-
-    // ✅ Atualiza o total de plataformas
     const totalElement = document.querySelector(".total-plataformas .total");
-    if (totalElement) {
-        totalElement.textContent = cards.length;
-        totalElement.textContent = `Total: ${cards.length}`;
-    }
+    const botaoTodos = document.getElementById("mostrar-todas");
+    const botaoTopo = document.getElementById("voltar-topo");
 
-    const porPagina = 10;
+    // Ordem dos cards por data
+    cards.sort((a, b) => {
+        const dataA = new Date(a.getAttribute("data-data") || 0);
+        const dataB = new Date(b.getAttribute("data-data") || 0);
+        return dataB - dataA; // mais recentes primeiro
+    });
+
+    cards.forEach(card => container.appendChild(card));
+    
+
+    // 🔄 Mover os cards para os containers certos
+    const todosOsCards = document.querySelectorAll("#paginacao-container .card");
+
+    todosOsCards.forEach(card => {
+        const grupo = card.getAttribute("data-grupo");
+        const dataStr = card.getAttribute("data-data");
+
+        // Cards fixos no grupo "destaques"
+        if (grupo === "destaques") {
+            document.getElementById("destaques-container").appendChild(card);
+            return;
+        }
+
+        // Cards considerados "novos" pela data
+        if (dataStr) {
+            const agora = new Date();
+            const dataCard = new Date(dataStr);
+            const diffMs = agora - dataCard;
+            const limiteMs = 7 * 24 * 60 * 60 * 1000; // 7 dias
+
+            if (!isNaN(dataCard.getTime()) && diffMs <= limiteMs) {
+                document.getElementById("novas-container").appendChild(card);
+                return;
+            }
+        }
+    });
+
+
+    // 🔢 Paginação
+    /*const porPagina = 10;
     let pagina = 1;
     const totalPaginas = Math.ceil(cards.length / porPagina);
 
@@ -77,6 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
         proximo.disabled = p === totalPaginas;
     }
 
+    exibirPagina(pagina);*/
+
+    // ⏮ Botões de navegação
     anterior.addEventListener("click", () => {
         if (pagina > 1) {
             pagina--;
@@ -91,12 +131,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    exibirPagina(pagina);
+    // ✅ Exibe total de plataformas
+    if (totalElement) {
+        totalElement.textContent = `Total: ${cards.length}`;
+    }
 
-    const botaoTodos = document.getElementById("mostrar-todas");
-    const navegacao = document.querySelector(".container-navegacao");
-
-    let mostrandoTodas = false;
+    // 📋 Botão "Mostrar Todas"
+    /*let mostrandoTodas = false;
 
     botaoTodos.addEventListener("click", () => {
         mostrandoTodas = !mostrandoTodas;
@@ -107,24 +148,21 @@ document.addEventListener("DOMContentLoaded", () => {
             anterior.disabled = true;
             proximo.disabled = true;
             botaoTodos.textContent = "Paginar";
+            paginaAtual.textContent = `Página 1/${totalPaginas}`;
         } else {
             pagina = 1;
             exibirPagina(pagina);
             botaoTodos.textContent = "Todas";
         }
-    });
+    });*/
 
-    const botaoTopo = document.getElementById("voltar-topo");
-
+    // ⬆️ Voltar ao topo
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 840) {
-            botaoTopo.style.display = "flex";
-        } else {
-            botaoTopo.style.display = "none";
-        }
+        botaoTopo.style.display = window.scrollY > 840 ? "flex" : "none";
     });
 
     botaoTopo.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "auto" });
     });
+
 });
