@@ -339,3 +339,9 @@ footer {
     margin-bottom: 40px;
     text-transform: uppercase;
 }
+
+.title-mais-plataformas {
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: start;
+}

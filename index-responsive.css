@@ -29,6 +29,10 @@ CELULAR PEQUENO
     .titulo-secao {
         text-align: center;
     }
+
+    .title-mais-plataformas {
+        text-align: center;
+    }
 }
 
 @media (max-width: 479px) {
