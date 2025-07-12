@@ -331,10 +331,11 @@ footer {
 }
 
 .grupo-cards .container {
-    margin-bottom: 60px;
+    margin-bottom: 100px;
 }
 
 .titulo-secao {
     text-align: start;
     margin-bottom: 40px;
+    text-transform: uppercase;
 }
