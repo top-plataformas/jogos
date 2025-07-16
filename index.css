@@ -1,0 +1,378 @@
+:root {
+    --color-escuro1: #0a0a0a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 14px;
+}
+
+main {
+    padding: 50px 0px;
+}
+
+.topo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 30px 30px;
+    padding: 60px 30px 50px 30px;
+}
+
+.topo-text h1 {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    line-height: 2.5rem;
+}
+
+.topo-text p {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    color: #ccc;
+    max-width: 700px;
+}
+
+.container-cards {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #222;
+    border-radius: 12px;
+    padding: 20px 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 20%;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.30rem;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.botao {
+    display: inline-block;
+    padding: 10px 10px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s;
+    margin-top: auto;
+    align-self: center;
+}
+
+.botao:hover {
+    background: #218838;
+}
+
+span {
+    color: #128f06;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    background: var(--color-escuro1);
+    border-radius: 30px 30px 0 0;
+}
+
+.compartilhar h2 {
+    font-size: 1.3rem;
+    /*margin-bottom: 2rem;*/
+    line-height: 1.75rem;
+}
+
+.botao-principal {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.botao-principal i {
+    margin-right: 8px;
+}
+
+.container-redes-sociais {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 2rem 0;
+}
+
+.copiar-link {
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: solid 1px #444;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    flex-wrap: wrap;
+
+}
+
+.copiar-link p {
+    color: #003366;
+}
+
+.copiar-container {
+    display: flex;
+    gap: 5px;
+
+}
+
+.copiar {
+    color: #ccc;
+}
+
+.copiar-link i {
+    color: #ccc;
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    font-size: 1rem;
+}
+
+.whatsapp {
+    color: rgb(37, 211, 102);
+}
+
+.telegram {
+    color: rgb(0, 136, 204);
+}
+
+.share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #28a745;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/*QR CODE*/
+.qrcode {
+    text-align: center;
+    /*margin-top: 40px;*/
+}
+
+.qrcode img {
+    max-width: 40%;
+}
+
+.qrcode h2 {
+    margin-bottom: 2rem;
+}
+
+.qrcode img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.qrcode p {
+    color: #ccc;
+    max-width: 350px;
+    text-align: center;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+}
+
+.navegacao button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #28a745;
+    color: #ccc;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.navegacao button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+.navegacao .todas {
+    display: flex;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    padding: 0;
+    font-size: 0.875rem;
+    color: #444444;
+    line-height: 1;
+}
+
+.total {
+    line-height: 1;
+    font-size: 0.85rem;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.container.fade-out {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.container.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.voltar-topo {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 22rem;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.voltar-topo button {
+    color: chartreuse;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.voltar-topo p {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: chartreuse;
+}
+
+.grupo-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.bloco {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.titulo-secao {
+    line-height: 1;
+}
+
+.carrossel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    flex-wrap: nowrap;
+}
+
+.carrossel {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.carrossel .card {
+    flex: 0 0 auto;
+    width: calc((100% - 4rem) / 5);
+}
+
+.mostrar-todas2 {
+    color: #128f06;
+    background: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border: solid 1px #128f06;
+    border-radius: 5px;
+    margin: auto;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 80px;
+}
+
+.mostrar-todas2:hover {
+    background-color: #128f06;
+    color: white;
+}
+
+.container-mostrar-todas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}

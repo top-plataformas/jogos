@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Escolha entre as melhores Plataformas para jogar e apostar online com segurança. Aproveite avaliações, bônus, métodos de saque e muito mais em um só lugar!">
+    <meta name="keywords"
+        content="jogos online, apostas online, bônus de boas-vindas, plataformas confiáveis, cassino online, roleta premiada, ganhar dinheiro online, saque rápido, cadastro com bônus, top plataformas, jogos com comissão, bônus por convite, apostas seguras, jogos no celular">
+    <meta name="author" content="Top Plataformas de jogos online">
+
+    <!--<meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#00bcf2">
+    <meta name="google-site-verification" content="9b1d2f3c4e5f6a7b8c9d0e1f2g3h4i5j6k7l8m9n0o1p2q3r4s5t6u7v8w9x0y1z" />
+    <meta name="msapplication-TileColor" content="#00bcf2">
+    <meta name="msapplication-TileImage" content="img/favicon.png">
+    <meta name="apple-mobile-web-app-title" content="Top Plataformas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="application-name" content="Top Plataformas de jogos online">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">-->
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Top Plataformas de jogos online">
+    <meta property="og:description"
+        content="Escolha entre as melhores Plataformas para jogar e apostar online com segurança. Aproveite avaliações, bônus, métodos de saque e muito mais em um só lugar4!">
+    <meta property="og:url" content="https://top-plataformas.github.io/jogos/">
+    <meta property="og:image" content="https://top-plataformas.github.io/jogos/img/favicon.png">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Top Plataformas de jogos online">
+    <meta name="twitter:description"
+        content="Escolha entre as melhores Plataformas para jogar e apostar online com segurança. Aproveite avaliações, bônus, métodos de saque e muito mais em um só lugar!">
+    <meta name="twitter:image" content="https://top-plataformas.github.io/jogos/img/favicon.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Top Plataformas de jogos online",
+        "url": "https://top-plataformas.github.io/jogos/",
+        "description": "Plataformas para jogar e apostar online com segurança, bônus e comissão.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Top Plataformas"
+        }
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R26K165MWT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-R26K165MWT');
+    </script>
+
+    <link rel="icon" href="img/favicon.png" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index-responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <title>Top Plataformas de jogos online</title>
+
+</head>
+
+<body>
+
+    <div class="topo-text">
+        <h1>💥 <span>Top Plataformas</h1>
+        <p>
+            🔥 Escolha entre as melhores Plataformas para jogar 🎮 e apostar 💸 online com segurança 🔒.<br><br>
+            Aproveite ⭐ avaliações, 🎁 bônus, 💳 métodos de saque e muito mais em um só lugar 🌐!
+        </p>
+    </div>
+
+    <main>
+
+        <section class="container-cards">
+
+            <div class="grupo-cards">
+
+                <div class="bloco">
+
+                    <h2 class="titulo-secao">📌 Destaques</h2>
+
+                    <div class="navegacao">
+                        <p class="todas">Todas</p>
+                        <div class="total" id="destaques-total"></div>
+                        <button id="anterior-destaques"><i class="fas fa-chevron-left"></i></button>
+                        <button id="proximo-destaques"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                </div>
+
+                <div class="carrossel-wrapper">
+                    <div id="destaques-container" class="container carrossel"></div>
+                </div>
+
+                <div class="container-mostrar-todas">
+                    <p class="total" id="quant"></p>
+                    <p>&nbsp;de&nbsp;</p>
+                    <p class="total" id="destaques-total-destaques"></p>
+                    <p>&nbsp;Plataformas 🎮</p>
+                </div>
+
+                <button class="mostrar-todas2" id="mostrar-todas-destaques">Mostrar Todas</button>
+
+                <div class="bloco">
+                    <h2 class="titulo-secao">✨ Novas</h2>
+
+                    <div class="container-navegacao">
+
+                        <div class="navegacao">
+                            <p class="todas">Todas</p>
+                            <div class="total" id="novas-total"></div>
+                            <button id="anterior-novas"><i class="fas fa-chevron-left"></i></button>
+                            <button id="proximo-novas"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carrossel-wrapper">
+                    <div id="novas-container" class="container carrossel"></div>
+                </div>
+
+                <div class="container-mostrar-todas">
+                    <p class="total" id="quant-novas"></p>
+                    <p>&nbsp;de&nbsp;</p>
+                    <p class="total" id="destaques-total-novas"></p>
+                    <p>&nbsp;Plataformas 🎮</p>
+                </div>
+
+                <button class="mostrar-todas2" id="mostrar-todas-novas">Mostrar Todas</button>
+
+            </div>
+
+            <div class="bloco">
+                <h2 class="titulo-secao">📦 Outras</h2>
+
+                <div class="container-navegacao">
+
+                    <div class="navegacao">
+                        <p class="todas">Todas</p>
+                        <div class="total" id="outras-total"></div>
+                        <button id="anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button id="proximo"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="carrossel-wrapper">
+
+                <div id="paginacao-container" class="container carrossel">
+
+                    <div class="card" data-grupo="destaques" data-data="2025-06-01T08:00:00">
+                        <img src="img/007game.png" alt="007game" />
+                        <p>
+                            <span>007game</span>, caça-níqueis com jogabilidade suave, sem atrasos e repleto de ótimos
+                            bônus. Diversão e ganhos a qualquer momento!
+                        </p>
+                        <a class="botao" href="https://aa007game.cc/?pid=84279374" target="_blank"
+                            rel="noopener noreferrer" data-label="007game">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-grupo="destaques" data-data="2025-06-01T08:01:00">
+                        <img src="img/hxhx.png" alt="hxhx.vip" />
+                        <p>
+                            <span>HXHX.VIP</span> — convide amigos e ganhe bônus de baú R$35. Ganhe até R$8.888.
+                            Cashback 3% e reembolso de até 5% para agentes.
+                        </p>
+                        <a class="botao" href="https://hxhx22.com/?pid=883712786" target="_blank"
+                            rel="noopener noreferrer" data-label="HXHX.VIP">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-grupo="destaques" data-data="2025-06-01T08:02:00">
+                        <img src="img/kkvip.png" alt="kkvip" />
+                        <p>
+                            <span>KKVIP.COM</span>, o site de jogos mais confiável. Após se registrar, vá em "perfil" →
+                            "convidar" e envie seu link para ganhar dinheiro!
+                        </p>
+                        <a class="botao" href="https://kkvip7.com/?pid=1513907103" target="_blank"
+                            rel="noopener noreferrer" data-label="KKVIP.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-grupo="destaques" data-data="2025-06-01T08:03:00">
+                        <img src="img/ok8.png" alt="ok8" />
+                        <p>
+                            Aproveite os jogos e bônus generosos da <span>OK8.COM</span>. Estamos esperando pelo seu
+                            próximo grande prêmio. Jogue agora e aumente suas chances!
+                        </p>
+                        <a class="botao" href="https://www.ok8v.com/?pid=58439569" target="_blank"
+                            rel="noopener noreferrer" data-label="OK8.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:04:00">
+                        <img src="img/234vip.png" alt="234vip" />
+                        <p>
+                            <span>234VIP.COM</span> — convide 1 pessoa e ganhe R$30 de bônus. Receba 5% da comissão da
+                            agência e 1% de desconto nas suas apostas!
+                        </p>
+                        <a class="botao" href="https://234vip37.com/?pid=63580399" target="_blank"
+                            rel="noopener noreferrer" data-label="234VIP.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:05:00">
+                        <img src="img/3191.png" alt="3191" />
+                        <p>
+                            <span>3191.COM</span> — convide 1 pessoa e ganhe bônus de R$30. Comissão da agência 3% e 1%
+                            em dinheiro de volta sobre o valor das apostas!
+                        </p>
+                        <a class="botao" href="https://31k91k.vip/main/inicio?pid=57870349" target="_blank"
+                            rel="noopener noreferrer" data-label="3191.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-grupo="destaques" data-data="2025-06-01T08:06:00">
+                        <img src="img/6566.png" alt="6566" />
+                        <p><span>6566.COM</span> — indique 1 pessoa e ganhe R$35. Gire para ganhar R$100. VIP recebe até
+                            R$100.000/mês. Comissão exclusiva de agente: 5%.
+                        </p>
+                        <a class="botao" href="https://6566.club/?a=pccewp3d" target="_blank" rel="noopener noreferrer"
+                            data-label="6566.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:07:00">
+                        <img src="img/ffwin.png" alt="ffwin" />
+                        <p>
+                            <span>FFwin</span> — convide 1 amigo e ganhe R$30. Baixe o app e receba R$6. Bônus de
+                            boas-vindas
+                            no 1º depósito: até R$888,88. Aproveite!
+                        </p>
+                        <a class="botao" href="https://ffwin5.win/main/inicio?pid=40261887" target="_blank"
+                            rel="noopener noreferrer" data-label="FFwin">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:08:00">
+                        <img src="img/3633bet.png" alt="3633bet" />
+                        <p>
+                            <span>3633bet.com</span> — bônus de R$40 por indicação, 5% de comissão da agência e prêmios
+                            de até R$7.777. Ganhe até R$100.000 por dia em apostas!
+                        </p>
+                        <a class="botao" href="https://3633bet.bond/main/inicio?pid=803575990" target="_blank"
+                            rel="noopener noreferrer" data-label="3633bet.com">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:09:00">
+                        <img src="img/kk45.png" alt="kk45" />
+                        <p>
+                            <span>KK45.COM</span> — bônus de R$50 por convite, comissão de até 5%. Site oficial
+                            licenciado e seguro. Jogue agora e aproveite grandes prêmios!
+                        </p>
+                        <a class="botao" href="https://r8t6g8.com/main/inicio?pid=135709805" target="_blank"
+                            rel="noopener noreferrer" data-label="KK45.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:10:00">
+                        <img src="img/e66.png" alt="e66" />
+                        <p>
+                            <span>E66.COM</span> — convide amigos e ganhe até R$300.000. Roleta premiada, bônus de R$30
+                            por convite e comissão de 5%. Cadastre-se agora!
+                        </p>
+                        <a class="botao" href="https://e66.space/#/home?a=owgfcruq" target="_blank"
+                            rel="noopener noreferrer" data-label="E66.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:11:00">
+                        <img src="img/79m.png" alt="79m" />
+                        <p>
+                            <span>79M.COM</span> — ganhe R$60 por indicação, até R$88 em bônus diário e 5% de cashback
+                            nas apostas.
+                        </p>
+                        <a class="botao" href="https://gi928fh.com/main/inicio?pid=1036204180" target="_blank"
+                            rel="noopener noreferrer" data-label="79M.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:12:00">
+                        <img src="img/57a.png" alt="57a" />
+                        <p>
+                            <span>57A.COM</span> — ganhe R$30 por indicação, 5% de comissão da agência e cashback de até
+                            30% semanal. Bônus de convite chega a R$500.000!
+                        </p>
+                        <a class="botao" href="https://f8f3hf4.com/main/inicio?pid=848989295" target="_blank"
+                            rel="noopener noreferrer" data-label="57A.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:13:00">
+                        <img src="img/76k.png" alt="76k" />
+                        <p>
+                            <span>76K.COM</span> — indique e ganhe R$60. Cashback de até 30%, comissão da agência de 5%
+                            e bônus VIP diário, semanal e mensal. Participe e ganhe!
+                        </p>
+                        <a class="botao" href="https://eb57kd.com/main/inicio?pid=1560542871" target="_blank"
+                            rel="noopener noreferrer" data-label="76K.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:14:00">
+                        <img src="img/53a.png" alt="53a" />
+                        <p>
+                            <span>53A.COM</span> — cashback de até 100% (50% diário + 50% semanal), R$55 por convite,
+                            5% de comissão e bônus VIP diários, semanais e mensais!
+                        </p>
+                        <a class="botao" href="https://53a11.xyz/?pid=2395979922" target="_blank"
+                            rel="noopener noreferrer" data-label="53A.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-grupo="destaques" data-data="2025-06-01T08:15:00">
+                        <img src="img/11q.png" alt="11q" />
+                        <p>
+                            <span>11Q.COM</span> — cashback de até 100% (50% diário + 50% semanal), R$55 por indicação,
+                            comissão de 5% e bônus VIP diário, semanal e mensal!
+                        </p>
+                        <a class="botao" href="https://11q11q.vip/?pid=2611989097" target="_blank"
+                            rel="noopener noreferrer" data-label="11Q.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:16:00">
+                        <img src="img/5hhh.png" alt="5hhh" />
+                        <p>
+                            <span>5HHH.COM</span> — ganhe R$30 por convite e receba 3% de comissão da agência. Renda
+                            extra de até R$100.000 por mês. Cadastre-se e aproveite!
+                        </p>
+                        <a class="botao" href="https://5hhh27.com/?pid=512800037" target="_blank"
+                            rel="noopener noreferrer" data-label="5HHH.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:17:00">
+                        <img src="img/78n.png" alt="78n" />
+                        <p>
+                            <span>78N.COM</span> — bônus de R$55 por convite e comissão de 5%. Cashback diário e semanal
+                            de até 100%. Cadastre-se e jogue agora!
+                        </p>
+                        <a class="botao" href="https://78n2.cc/?pid=2413214253" target="_blank"
+                            rel="noopener noreferrer" data-label="78N.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:18:00">
+                        <img src="img/85k.png" alt="85k" />
+                        <p>
+                            <span>85K.COM</span> — bônus de R$55 por convite, comissão de 5% e cashback diário e semanal
+                            de até 100%. Jogue e ganhe prêmios agora!
+                        </p>
+                        <a class="botao" href="https://85k85k.cc/?pid=2499532146" target="_blank"
+                            rel="noopener noreferrer" data-label="85K.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:19:00">
+                        <img src="img/98z.png" alt="98z" />
+                        <p>
+                            <span>98Z.COM</span> — bônus de R$50 por convite, 5% de comissão e até 30% de cashback
+                            diário e semanal. Cadastre-se e aproveite as promoções!
+                        </p>
+                        <a class="botao" href="https://98z22.com/main/inicio?pid=2550940209" target="_blank"
+                            rel="noopener noreferrer" data-label="98Z.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:20:00">
+                        <img src="img/69h.png" alt="69h" />
+                        <p>
+                            <span>69H.COM</span> — bônus de R$35 por convite, 5% de comissão e até 50% de cashback
+                            diário e semanal. Cadastre-se e ganhe com seus jogos!
+                        </p>
+                        <a class="botao" href="https://o6t7u7.com/main/inicio?pid=2571935023" target="_blank"
+                            rel="noopener noreferrer" data-label="69H.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-06-01T08:21:00">
+                        <img src="img/8857.png" alt="8857" />
+                        <p>
+                            <span>8857.COM</span> — bônus de R$55 por convite, 5% de comissão e 100% de cashback diário
+                            e semanal. Cadastre-se e aproveite grandes prêmios!
+                        </p>
+                        <a class="botao" href="https://8857i.com/main/inicio?pid=2985135089" target="_blank"
+                            rel="noopener noreferrer" data-label="8857.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-07-07T10:45:00">
+                        <img src="img/67a.png" alt="67a" />
+                        <p>
+                            <span>67A.COM</span> — bônus de R$55 por convite, cashback diário e semanal de 50%, roleta
+                            da sorte e bônus VIP diário, semanal e mensal, 5% de comissão!
+                        </p>
+                        <a class="botao" href="https://20ofi3u.com/main/inicio?pid=2881644425" target="_blank"
+                            rel="noopener noreferrer" data-label="67A.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-07-08T10:45:00">
+                        <img src="img/79b.png" alt="79b" />
+                        <p>
+                            <span>79B.COM</span> — bônus de R$55 por convite, 5% de cashback, bônus VIP diário, semanal
+                            e mensal, check-in diário com prêmios e comissão para agentes.
+                        </p>
+                        <a class="botao" href="https://i8hy8t4.com/main/inicio?pid=2336912367" target="_blank"
+                            rel="noopener noreferrer" data-label="79B.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-07-09T10:45:00">
+                        <img src="img/78tt.png" alt="78tt" />
+                        <p>
+                            <span>78TT.COM</span> oferece bônus de convite de R$56 por pessoa. Compartilhe seu link de
+                            agente e ganhe comissão de 5,00% da agência!
+                        </p>
+                        <a class="botao" href="https://78tt4.com/?pid=2835432284" target="_blank"
+                            rel="noopener noreferrer" data-label="78TT.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-07-10T10:45:00">
+                        <img src="img/77gg.png" alt="77gg" />
+                        <p>
+                            <span>77GG.COM</span> oferece bônus de convite de R$56 por pessoa. Compartilhe seu link de
+                            agente e ganhe comissão de 5,00% da agência!
+                        </p>
+                        <a class="botao" href="https://77gg4.com/main/inicio?pid=2186165813" target="_blank"
+                            rel="noopener noreferrer" data-label="77GG.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-07-11T12:54:00">
+                        <img src="img/3831.png" alt="3831" />
+                        <p>
+                            <span>3831.COM</span> oferece bônus de convite de R$55,50 por pessoa. Compartilhe seu link
+                            de agente e ganhe comissão de 5,00% da agência!
+                        </p>
+                        <a class="botao" href="https://383185.com/main/inicio?pid=2622326932" target="_blank"
+                            rel="noopener noreferrer" data-label="3831.COM">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-07-11T13:50:00">
+                        <img src="img/76n.png" alt="76n" />
+                        <p>
+                            <span>76N.COM</span> oferece bônus de convite de R$55,50 por pessoa. Compartilhe seu link de
+                            agente e ganhe comissão de 5,00% da agência!
+                        </p>
+                        <a class="botao" href="https://u5m1vcea.com/main/inicio?pid=1858773687" target="_blank"
+                            rel="noopener noreferrer" data-label="76N">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-07-11T14:01:00">
+                        <img src="img/BG777.png" alt="bg777" />
+                        <p>
+                            <span>BG777.CC</span> oferece bônus de convite, depósito e muito mais. Compartilhe seu link
+                            de agente e ganhe comissão de agência!
+                        </p>
+                        <a class="botao" href="https://bg777.cc/index.html?code=4868874" target="_blank"
+                            rel="noopener noreferrer" data-label="BG777.CC">Cadastrar-se</a>
+                    </div>
+
+                    <div class="card" data-data="2025-07-15T10:40:00">
+                        <img src="img/76x.png" alt="76x" />
+                        <p>
+                            <span>76X.COM</span> oferece bônus de convite, depósito e muito mais. Compartilhe seu link
+                            de agente e ganhe comissão de agência!
+                        </p>
+                        <a class="botao" href="https://7be6nw.com/main/inicio?pid=1842843470" target="_blank"
+                            rel="noopener noreferrer" data-label="76X.COM">Cadastrar-se</a>
+                    </div>
+                    <div class="card" data-data="2025-07-15T21:02:00">
+                        <img src="img/56f.png" alt="56f" />
+                        <p>
+                            <span>56F.COM</span> oferece bônus de convite, depósito e muito mais. Compartilhe seu link
+                            de agente e ganhe comissão de agência!
+                        </p>
+                        <a class="botao" href="https://pdd.pd1i2g9.com/main/inicio?pid=1997340830" target="_blank"
+                            rel="noopener noreferrer" data-label="56F.COM">Cadastrar-se</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container-mostrar-todas">
+                <p class="total" id="quant-restantes"></p>
+                <p>&nbsp;de&nbsp;</p>
+                <p class="total" id="destaques-total-restantes"></p>
+                <p>&nbsp;Plataformas 🎮</p>
+            </div>
+
+            <button class="mostrar-todas2" id="mostrar-todas">Mostrar Todas</button>
+
+        </section>
+
+        <div id="voltar-topo" class="voltar-topo">
+            <button>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            <p>Topo</p>
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="compartilhar">
+
+            <h2>🔗 Compartilhe <span>Top Plataformas</span> com seus amigos!</h2>
+
+            <!--<button class="botao-principal" onclick="toggleRedes()">
+                <i class="fas fa-share-alt"></i> Compartilhar
+            </button>-->
+
+            <div class="container-redes-sociais" id="redes-sociais">
+
+                <div class="redes">
+                    <button class="share" onclick="compartilharSite()">
+                        <i class="fa-solid fa-share"></i>
+                        Compartilhar
+                    </button>
+                </div>
+
+                <div class="copiar-link" onclick="copiarLink()">
+                    <p>https://top-plataformas.github.io/jogos/</p>
+                    <div class="copiar-container">
+                        <i class="fa-regular fa-copy"></i>
+                        <span class="copiar">Copiar Link</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- QR Code -->
+        <div class="qrcode">
+            <img src="img/qrcode-top-plataformas.jpg" alt="QR Code para acessar o site Top Plataformas">
+            <p>Escaneie o QR Code com a câmera do celular e acesse a página <span>Top Plataformas</span>!</p>
+        </div>
+
+    </footer>
+    <script src="javascript.js"></script>
+</body>
+
+</html>
