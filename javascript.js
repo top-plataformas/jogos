@@ -163,7 +163,29 @@ document.addEventListener("DOMContentLoaded", () => {
             btnTodas.addEventListener("click", () => {
                 mostrandoTodas = !mostrandoTodas;
 
+                // IDs dos contadores e barras por grupo
+                let quantId = "";
+                let barraId = "";
+
+                if (containerId === "destaques-container") {
+                    quantId = "quant";
+                    barraId = "barra-destaques";
+                } else if (containerId === "novas-container") {
+                    quantId = "quant-novas";
+                    barraId = "barra-novas";
+                } else if (containerId === "paginacao-container") {
+                    quantId = "quant-restantes";
+                    barraId = "barra-restantes";
+                }
+
+                const quant = document.getElementById(quantId);
+                const barra = document.getElementById(barraId);
+
                 if (mostrandoTodas) {
+                    // Esconder contador e barra
+                    if (quant) quant.style.display = "none";
+                    if (barra) barra.style.display = "none";
+
                     container.style.transform = `translateX(0px)`;
                     container.style.flexWrap = "wrap";
                     cards.forEach(card => card.style.display = "flex");
@@ -172,6 +194,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     btnAnterior.disabled = true;
                     btnProximo.disabled = true;
                 } else {
+                    // Mostrar contador e barra
+                    if (quant) quant.style.display = "";
+                    if (barra) barra.style.display = "";
+
                     container.style.flexWrap = "nowrap";
                     cards.forEach(card => card.style.display = "flex");
                     pagina = 1;

@@ -204,6 +204,11 @@ footer {
     background-color: #28a745;
     padding: 10px;
     border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.share:hover {
+    background: #218838;
 }
 
 /*QR CODE*/
@@ -271,7 +276,7 @@ footer {
 .total {
     line-height: 1;
     font-size: 0.85rem;
-    color: #28a745;
+    color: #0084ff;
     font-weight: bold;
 }
 
@@ -295,14 +300,14 @@ footer {
     position: fixed;
     bottom: 22rem;
     right: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
 }
 
 .voltar-topo button {
-    color: chartreuse;
+    color: #0084ff;
     background-color: transparent;
     border: none;
     font-size: 1rem;
@@ -312,7 +317,7 @@ footer {
 .voltar-topo p {
     font-size: 0.875rem;
     font-weight: bold;
-    color: chartreuse;
+    color: #0084ff;
 }
 
 .grupo-cards {
@@ -352,12 +357,12 @@ footer {
 }
 
 .mostrar-todas2 {
-    color: #128f06;
+    color: #0084ff;
     background: none;
     font-size: 1rem;
     font-weight: bold;
     border: none;
-    border: solid 1px #128f06;
+    border: solid 1px #0084ff;
     border-radius: 5px;
     margin: auto;
     padding: 10px;
@@ -366,7 +371,7 @@ footer {
 }
 
 .mostrar-todas2:hover {
-    background-color: #128f06;
+    background-color: #0084ff;
     color: white;
 }
 
