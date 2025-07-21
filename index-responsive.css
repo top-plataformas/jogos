@@ -5,7 +5,7 @@ CELULAR PEQUENO
 @media (max-width: 374px) {
 
     main {
-        padding: 50px 20px !important;
+        padding: 0px 20px !important;
     }
 
     .container {
@@ -31,7 +31,7 @@ CELULAR PEQUENO
 @media (max-width: 480px) {
 
     main {
-        padding: 50px 20px;
+        padding: 0px 20px;
     }
 
     .container {
@@ -56,7 +56,7 @@ CELULAR MÉDIO / GRANDE (TIPO IPHONE PLUS, GALAXY S, ETC.)
 @media (min-width: 481px) and (max-width: 767px) {
 
     main {
-        padding: 50px 20px;
+        padding: 0px 20px;
     }
 
     .container {
@@ -78,7 +78,7 @@ TABLET VERTICAL (IPAD EM PÉ, POR EXEMPLO)
 @media (min-width: 767.1px) and (max-width: 1023px) {
 
     main {
-        padding: 50px;
+        padding: 0px 50px;
     }
 
     .container {
@@ -92,6 +92,10 @@ TABLET VERTICAL (IPAD EM PÉ, POR EXEMPLO)
         width: calc((100% - 2.5rem) / 3);
     }
 
+    .campo-pesquisa {
+        max-width: 500px;
+    }
+
 }
 
 /*=========================================================
@@ -100,7 +104,7 @@ DESKTOP PADRÃO / TABLET DEITADO
 @media (min-width: 1024px) and (max-width: 1279px) {
 
     main {
-        padding: 50px;
+        padding: 0 50px;
     }
 
     .container {
@@ -111,5 +115,9 @@ DESKTOP PADRÃO / TABLET DEITADO
 
     .carrossel .card {
         width: calc((100% - 3rem) / 4);
+    }
+
+    .campo-pesquisa {
+        max-width: 500px;
     }
 }

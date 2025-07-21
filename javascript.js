@@ -605,4 +605,40 @@ document.addEventListener("DOMContentLoaded", () => {
     botaoTopo.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "auto" });
     });
+
+    // Pesquisar
+    const campoPesquisa = document.getElementById("pesquisa");
+    const secaoPrincipal = document.getElementById("todas-as-plataformas");
+    const secaoResultados = document.getElementById("resultado-pesquisa");
+    const containerFiltrados = document.getElementById("cards-filtrados");
+
+    const todosCards = Array.from(document.querySelectorAll(".card"));
+    const containerOriginal = todosCards[0]?.parentElement;
+
+    campoPesquisa.addEventListener("input", () => {
+        const termo = campoPesquisa.value.trim().toLowerCase();
+        containerFiltrados.innerHTML = "";
+
+        if (!termo) {
+            todosCards.forEach(card => containerOriginal.appendChild(card));
+            secaoResultados.style.display = "none";
+            secaoPrincipal.style.display = "";
+            return;
+        }
+
+        const filtrados = todosCards.filter(card => {
+            const nomePlataforma = card.querySelector("span")?.textContent.toLowerCase();
+            return nomePlataforma && nomePlataforma.includes(termo);
+        });
+
+        if (filtrados.length > 0) {
+            filtrados.forEach(card => containerFiltrados.appendChild(card));
+            secaoPrincipal.style.display = "none";
+            secaoResultados.style.display = "flex";
+        } else {
+            secaoPrincipal.style.display = "none";
+            secaoResultados.style.display = "flex";
+            containerFiltrados.innerHTML = `<div class="mensagem-nenhum-resultado"><p>Nenhum resultado encontrado.</p></div>`;
+        }
+    });
 });

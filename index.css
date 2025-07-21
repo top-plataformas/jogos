@@ -17,7 +17,7 @@ body {
 }
 
 main {
-    padding: 50px 0px;
+    padding: 0px 0px;
 }
 
 .topo-text {
@@ -27,6 +27,7 @@ main {
     justify-content: center;
     border-radius: 0 0 30px 30px;
     padding: 60px 30px 50px 30px;
+
 }
 
 .topo-text h1 {
@@ -41,6 +42,25 @@ main {
     color: #ccc;
     max-width: 700px;
 }
+
+.container-pesquisa {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.mensagem-nenhum-resultado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.mensagem-nenhum-resultado p {
+    color: #ccc;
+    font-size: 1rem;
+    text-align: center;
+}
+
 
 .container-cards {
     max-width: 1200px;
@@ -380,4 +400,39 @@ footer {
     align-items: center;
     justify-content: center;
     margin: 20px 0;
+}
+
+.campo-pesquisa {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+.campo-pesquisa input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #444;
+    background: none;
+    color: #ccc;
+    margin-bottom: 50px;
+}
+
+.campo-pesquisa input:focus {
+    outline: none;
+    border-color: #28a745;
+}
+
+.icone-lupa {
+    padding-right: 12px;
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateY(-200%);
+    font-size: 1rem;
+    color: #0084ff;
 }
