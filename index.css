@@ -45,7 +45,7 @@ main {
 
 .container-pesquisa {
     max-width: 1200px;
-    margin: auto;
+    margin: auto auto 50px auto;
 }
 
 .mensagem-nenhum-resultado {
@@ -234,7 +234,6 @@ footer {
 /*QR CODE*/
 .qrcode {
     text-align: center;
-    /*margin-top: 40px;*/
 }
 
 .qrcode img {

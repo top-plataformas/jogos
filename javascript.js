@@ -620,9 +620,32 @@ document.addEventListener("DOMContentLoaded", () => {
         containerFiltrados.innerHTML = "";
 
         if (!termo) {
-            todosCards.forEach(card => containerOriginal.appendChild(card));
             secaoResultados.style.display = "none";
             secaoPrincipal.style.display = "";
+
+            // Reorganiza os cards nos seus grupos originais
+            todosCards.forEach(card => {
+                const grupo = card.getAttribute("data-grupo");
+                const dataStr = card.getAttribute("data-data");
+
+                if (grupo === "destaques") {
+                    document.getElementById("destaques-container").appendChild(card);
+                } else if (dataStr) {
+                    const agora = new Date();
+                    const dataCard = new Date(dataStr);
+                    const diffMs = agora - dataCard;
+                    const limiteMs = 7 * 24 * 60 * 60 * 1000; // 7 dias
+
+                    if (!isNaN(dataCard.getTime()) && diffMs <= limiteMs) {
+                        document.getElementById("novas-container").appendChild(card);
+                    } else {
+                        document.getElementById("paginacao-container").appendChild(card);
+                    }
+                } else {
+                    document.getElementById("paginacao-container").appendChild(card);
+                }
+            });
+
             return;
         }
 
