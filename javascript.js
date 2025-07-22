@@ -1,3 +1,6 @@
+// ================================
+// 📌 RASTREAMENTO DE CLIQUES
+// ================================
 document.addEventListener("DOMContentLoaded", function () {
     document.body.addEventListener("click", function (e) {
         const botao = e.target.closest("button, a");
@@ -17,19 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/*function toggleRedes() {
-    const redes = document.getElementById("redes-sociais");
-    redes.classList.toggle("ativo");
-    redes.style.display = redes.style.display === "flex" ? "none" : "flex";
-}*/
-
+// ================================
+// 📌 UTILITÁRIOS: COMPARTILHAR E COPIAR LINK
+// ================================
 function copiarLink() {
     const url = "https://top-plataformas.github.io/jogos/";
     navigator.clipboard.writeText(url).then(() => {
         const span = document.querySelector(".copiar");
         span.textContent = "Link Copiado";
         span.style.color = "#128f06";
-
         setTimeout(() => {
             span.textContent = "Copiar Link";
             span.style.color = "";
@@ -41,7 +40,7 @@ function compartilharSite() {
     if (navigator.share) {
         navigator.share({
             title: "💥 Top Plataformas de jogos online",
-            text: "🔥 Escolha entre as melhores Plataformas para jogar e apostar online com segurança 🔒! \n\n🎁 Bônus imperdíveis \n🎮 Jogos emocionantes \n💳 Saques rápidos \n💰 Comissão diária\n\nAcesse: ",
+            text: "🔥 Escolha entre as melhores Plataformas para jogar e apostar online com segurança 🔒!\n\n🎁 Bônus imperdíveis \n🎮 Jogos emocionantes \n💳 Saques rápidos \n💰 Comissão diária\n\nAcesse: ",
             url: 'https://top-plataformas.github.io/jogos/'
         }).catch((error) => console.log('Erro ao compartilhar:', error));
     } else {
@@ -49,56 +48,58 @@ function compartilharSite() {
     }
 }
 
+// ================================
+// 🧩 DOMContentLoaded
+// ================================
 document.addEventListener("DOMContentLoaded", () => {
 
-    // 📦 Seleção de elementos
+    // ================================
+    // 🔷 SELEÇÃO DE ELEMENTOS
+    // ================================
     const cards = Array.from(document.querySelectorAll(".card"));
     const container = document.getElementById("paginacao-container");
     const anterior = document.getElementById("anterior");
     const proximo = document.getElementById("proximo");
     const paginaAtual = document.getElementById("pagina-atual");
-    const totalElement = document.querySelector(".total-plataformas .total");
     const botaoTodos = document.getElementById("mostrar-todas");
     const botaoTopo = document.getElementById("voltar-topo");
 
-    // Ordem dos cards por data
+    // ================================
+    // 🔷 ORGANIZAÇÃO DE CARDS
+    // ================================
     cards.sort((a, b) => {
         const dataA = new Date(a.getAttribute("data-data") || 0);
         const dataB = new Date(b.getAttribute("data-data") || 0);
-        return dataB - dataA; // mais recentes primeiro
+        return dataB - dataA;
     });
-
     cards.forEach(card => container.appendChild(card));
 
-
-    // 🔄 Mover os cards para os containers certos
     const todosOsCards = document.querySelectorAll("#paginacao-container .card");
 
     todosOsCards.forEach(card => {
         const grupo = card.getAttribute("data-grupo");
         const dataStr = card.getAttribute("data-data");
 
-        // Cards fixos no grupo "destaques"
         if (grupo === "destaques") {
             document.getElementById("destaques-container").appendChild(card);
             return;
         }
 
-        // Cards considerados "novos" pela data
         if (dataStr) {
             const agora = new Date();
             const dataCard = new Date(dataStr);
-            const diffMs = agora - dataCard;
-            const limiteMs = 7 * 24 * 60 * 60 * 1000; // 7 dias
+            const limiteMs = 7 * 24 * 60 * 60 * 1000;
 
-            if (!isNaN(dataCard.getTime()) && diffMs <= limiteMs) {
+            if (!isNaN(dataCard.getTime()) && (agora - dataCard) <= limiteMs) {
                 document.getElementById("novas-container").appendChild(card);
                 return;
             }
         }
     });
 
-    // 🔢 Paginação
+    // ================================
+    // 🔷 FUNÇÃO DE PAGINAÇÃO REUTILIZÁVEL
+    // ================================
     function paginarGrupo(config) {
         const {
             containerId,
@@ -131,6 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const porPagina = calcularPorPagina();
             const totalPaginas = Math.ceil(cards.length / porPagina);
 
+            // ⛔️ Não aplica transform em telas pequenas (evita conflito com swipe)
+            if (window.innerWidth <= 1024) return;
+
             const larguraCard = cards[0]?.offsetWidth || 0;
             const gap = parseFloat(getComputedStyle(container).gap || "0");
             const deslocamento = (larguraCard + gap) * porPagina * (p - 1);
@@ -162,10 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (btnTodas) {
             btnTodas.addEventListener("click", () => {
                 mostrandoTodas = !mostrandoTodas;
-
-                // IDs dos contadores e barras por grupo
-                let quantId = "";
-                let barraId = "";
+                let quantId = "", barraId = "";
 
                 if (containerId === "destaques-container") {
                     quantId = "quant";
@@ -182,34 +183,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 const barra = document.getElementById(barraId);
 
                 if (mostrandoTodas) {
-                    // Esconder contador e barra
                     if (quant) quant.style.display = "none";
                     if (barra) barra.style.display = "none";
-
                     container.style.transform = `translateX(0px)`;
                     container.style.flexWrap = "wrap";
                     cards.forEach(card => card.style.display = "flex");
-
                     btnTodas.textContent = "Recolher";
                     btnAnterior.disabled = true;
                     btnProximo.disabled = true;
                 } else {
-                    // Mostrar contador e barra
                     if (quant) quant.style.display = "";
                     if (barra) barra.style.display = "";
-
                     container.style.flexWrap = "nowrap";
                     cards.forEach(card => card.style.display = "flex");
-
                     pagina = 1;
                     exibirPagina(pagina);
-
                     btnTodas.textContent = "Mostrar Todas";
-
-                    // ✅ Corrigir estado dos botões com base na nova paginação
                     const porPagina = calcularPorPagina();
                     const totalPaginas = Math.ceil(cards.length / porPagina);
-
                     if (btnAnterior) btnAnterior.disabled = pagina === 1;
                     if (btnProximo) btnProximo.disabled = pagina >= totalPaginas;
                 }
@@ -222,7 +213,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         container.style.flexWrap = "nowrap";
         exibirPagina(pagina);
-
         window.addEventListener("resize", () => {
             if (!mostrandoTodas) {
                 exibirPagina(pagina);
@@ -254,214 +244,21 @@ document.addEventListener("DOMContentLoaded", () => {
         totalId: "outras-total"
     });
 
-    function habilitarSwipe(containerId) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-
-        let paginaAtual = 1;
-
-        function calcularPorPagina() {
-            const largura = window.innerWidth;
-            if (largura <= 374) return 1;
-            if (largura <= 480) return 2;
-            if (largura <= 1023) return 3;
-            if (largura <= 1279) return 4;
-            return 5;
-        }
-
-        const cards = Array.from(container.children);
-
-        function getTotalPaginas() {
-            const porPagina = calcularPorPagina();
-            return Math.ceil(cards.length / porPagina);
-        }
-
-        window.atualizarContadorPorId = function (containerId, pagina) {
-            let calcularPorPagina = () => {
-                const largura = window.innerWidth;
-                if (largura <= 374) return 1;
-                if (largura <= 480) return 2;
-                if (largura <= 1023) return 3;
-                if (largura <= 1279) return 4;
-                return 5;
-            };
-
-            const container = document.getElementById(containerId);
-            const cards = Array.from(container.children);
-            const vistos = Math.min(calcularPorPagina() * pagina, cards.length);
-
-            if (containerId === "destaques-container") {
-                document.getElementById("quant").textContent = `${vistos}`;
-            } else if (containerId === "novas-container") {
-                document.getElementById("quant-novas").textContent = `${vistos}`;
-            } else if (containerId === "paginacao-container") {
-                document.getElementById("quant-restantes").textContent = `${vistos}`;
-            }
-        };
-
-        function atualizarPagina(delta) {
-            const totalPaginas = getTotalPaginas();
-            paginaAtual += delta;
-            if (paginaAtual < 1) paginaAtual = 1;
-            if (paginaAtual > totalPaginas) paginaAtual = totalPaginas;
-
-            const larguraCard = cards[0]?.offsetWidth || 0;
-            const gap = parseFloat(getComputedStyle(container).gap || "0");
-            const porPagina = calcularPorPagina();
-            const deslocamento = (larguraCard + gap) * porPagina * (paginaAtual - 1);
-
-            container.style.transform = `translateX(-${deslocamento}px)`;
-
-            // ✅ Atualiza contador corretamente após swipe
-            window.atualizarContadorPorId(containerId, paginaAtual);
-        }
-
-        container.addEventListener("touchstart", (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        });
-
-        container.addEventListener("touchmove", (e) => {
-            if (!isDragging) return;
-            currentX = e.touches[0].clientX;
-            const diff = startX - currentX;
-
-            // Evita scroll vertical
-            if (Math.abs(diff) > 10) {
-                e.preventDefault();
-            }
-        });
-
-        container.addEventListener("touchend", (e) => {
-            if (!isDragging) return;
-            const diff = startX - e.changedTouches[0].clientX;
-            const limite = 50;
-
-            if (diff > limite) {
-                atualizarPagina(1); // próximo
-            } else if (diff < -limite) {
-                atualizarPagina(-1); // anterior
-            }
-
-            isDragging = false;
-        });
-
-        // Atualiza ao redimensionar a tela
-        window.addEventListener("resize", () => {
-            const totalPaginas = getTotalPaginas();
-            if (paginaAtual > totalPaginas) paginaAtual = totalPaginas;
-            atualizarPagina(0); // manter na mesma página
-        });
-    }
-
-    habilitarSwipe("destaques-container");
-    habilitarSwipe("novas-container");
-    habilitarSwipe("paginacao-container");
-
-    // ⏮ Botões de navegação
-    anterior.addEventListener("click", () => {
-        if (pagina > 1) {
-            pagina--;
-            exibirPagina(pagina);
-        }
-    });
-
-    proximo.addEventListener("click", () => {
-        if (pagina < totalPaginas) {
-            pagina++;
-            exibirPagina(pagina);
-        }
-    });
-
-    // Mostrar total de cards por grupo
-    function atualizarTotal(containerId, totalId) {
-        const container = document.getElementById(containerId);
-        const totalDiv = document.querySelector(`#${totalId} .total`);
-        if (container && totalDiv) {
-            const totalCards = container.querySelectorAll(".card").length;
-            totalDiv.textContent = `Total: ${totalCards}`;
-        }
-    }
-
-    atualizarTotal("destaques-container", "destaques-total");
-    atualizarTotal("novas-container", "novas-total");
-    atualizarTotal("paginacao-container", "outras-total");
-
-    const totalOriginal = document.getElementById("destaques-total");
-    const totalCopia = document.getElementById("destaques-total-destaques");
-
-    if (totalOriginal && totalCopia) {
-        totalCopia.textContent = totalOriginal.textContent;
-    }
-
+    // ================================
+    // 🔢 CONTADOR DE CARDS – DESTAQUES
+    // ================================
     function atualizarContadorDestaques() {
         const container = document.getElementById("destaques-container");
-        const contador = document.getElementById("quant");
-
-        if (!container || !contador) return;
-
-        const cards = Array.from(container.children);
-
-        function calcularPorPagina() {
-            const largura = window.innerWidth;
-            if (largura <= 374) return 1;
-            if (largura <= 480) return 2;
-            if (largura <= 1023) return 3;
-            if (largura <= 1279) return 4;
-            return 5;
-        }
-
-        let pagina = 1;
-        let totalPaginas = 1;
-
-        function exibirPagina(p) {
-            const porPagina = calcularPorPagina();
-            totalPaginas = Math.ceil(cards.length / porPagina);
-            pagina = p;
-
-            const vistos = Math.min(porPagina * pagina, cards.length);
-            contador.textContent = `${vistos}`;
-        }
-
+        const contador = document.getElementById("contador-destaques");
         const btnAnterior = document.getElementById("anterior-destaques");
         const btnProximo = document.getElementById("proximo-destaques");
+        const btnMostrarTodas = document.getElementById("mostrar-todas-destaques");
 
-        if (btnAnterior && btnProximo) {
-            btnAnterior.addEventListener("click", () => {
-                if (pagina > 1) {
-                    pagina--;
-                    exibirPagina(pagina);
-                }
-            });
-
-            btnProximo.addEventListener("click", () => {
-                if (pagina < totalPaginas) {
-                    pagina++;
-                    exibirPagina(pagina);
-                }
-            });
-        }
-
-        window.addEventListener("resize", () => {
-            exibirPagina(pagina);
-        });
-
-        exibirPagina(pagina);
-    }
-
-    function atualizarContadorNovas() {
-        const container = document.getElementById("novas-container");
-        const contador = document.getElementById("quant-novas");
-        const totalDiv = document.getElementById("destaques-total-novas");
-
-        if (!container || !contador || !totalDiv) return;
+        if (!container || !contador || !btnMostrarTodas) return;
 
         const cards = Array.from(container.children);
-        totalDiv.textContent = `${cards.length}`;
+        const totalCards = cards.length;
+        let pagina = 1;
 
         function calcularPorPagina() {
             const largura = window.innerWidth;
@@ -472,30 +269,37 @@ document.addEventListener("DOMContentLoaded", () => {
             return 5;
         }
 
-        let pagina = 1;
-        let totalPaginas = 1;
-
-        function exibirPagina(p) {
-            const porPagina = calcularPorPagina();
-            totalPaginas = Math.ceil(cards.length / porPagina);
-            pagina = p;
-
-            const vistos = Math.min(porPagina * pagina, cards.length);
-            contador.textContent = `${vistos}`;
+        function atualizarTextoContador() {
+            const mostrandoTodas = btnMostrarTodas.textContent === "Recolher";
+            if (mostrandoTodas) {
+                contador.innerHTML = `<span class="total">${totalCards}</span> Plataformas 🎮`;
+            } else {
+                const porPagina = calcularPorPagina();
+                const vistos = Math.min(pagina * porPagina, totalCards);
+                contador.innerHTML = `<span class="total">${vistos}</span> / <span class="total">${totalCards}</span> Plataformas 🎮`;
+            }
         }
 
-        const btnAnterior = document.getElementById("anterior-novas");
-        const btnProximo = document.getElementById("proximo-novas");
+        function exibirPagina(p) {
+            pagina = p;
+            atualizarTextoContador();
+        }
 
-        if (btnAnterior && btnProximo) {
+        // Clique em Anterior
+        if (btnAnterior) {
             btnAnterior.addEventListener("click", () => {
                 if (pagina > 1) {
                     pagina--;
                     exibirPagina(pagina);
                 }
             });
+        }
 
+        // Clique em Próximo
+        if (btnProximo) {
             btnProximo.addEventListener("click", () => {
+                const porPagina = calcularPorPagina();
+                const totalPaginas = Math.ceil(totalCards / porPagina);
                 if (pagina < totalPaginas) {
                     pagina++;
                     exibirPagina(pagina);
@@ -503,107 +307,193 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        window.addEventListener("resize", () => {
-            exibirPagina(pagina);
+        // Clique em Mostrar Todas / Recolher
+        btnMostrarTodas.addEventListener("click", () => {
+            setTimeout(() => {
+                const mostrandoTodas = btnMostrarTodas.textContent === "Recolher";
+
+                if (!mostrandoTodas) {
+                    pagina = 1; // ← volta para página inicial ao "Recolher"
+                }
+
+                atualizarTextoContador();
+            }, 0); // espera o texto do botão mudar
         });
 
-        exibirPagina(pagina);
-    }
-
-    function atualizarContadorOutras() {
-        const container = document.getElementById("paginacao-container");
-        const contador = document.getElementById("quant-restantes");
-        const totalDiv = document.getElementById("destaques-total-restantes");
-
-        if (!container || !contador || !totalDiv) return;
-
-        const cards = Array.from(container.children);
-        totalDiv.textContent = `${cards.length}`;
-
-        function calcularPorPagina() {
-            const largura = window.innerWidth;
-            if (largura <= 374) return 1;
-            if (largura <= 480) return 2;
-            if (largura <= 1023) return 3;
-            if (largura <= 1279) return 4;
-            return 5;
-        }
-
-        let pagina = 1;
-        let totalPaginas = 1;
-
-        function exibirPagina(p) {
-            const porPagina = calcularPorPagina();
-            totalPaginas = Math.ceil(cards.length / porPagina);
-            pagina = p;
-
-            const vistos = Math.min(porPagina * pagina, cards.length);
-            contador.textContent = `${vistos}`;
-        }
-
-        const btnAnterior = document.getElementById("anterior");
-        const btnProximo = document.getElementById("proximo");
-
-        if (btnAnterior && btnProximo) {
-            btnAnterior.addEventListener("click", () => {
-                if (pagina > 1) {
-                    pagina--;
-                    exibirPagina(pagina);
-                }
-            });
-
-            btnProximo.addEventListener("click", () => {
-                if (pagina < totalPaginas) {
-                    pagina++;
-                    exibirPagina(pagina);
-                }
-            });
-        }
-
+        // Atualiza ao redimensionar
         window.addEventListener("resize", () => {
-            exibirPagina(pagina);
+            atualizarTextoContador();
         });
 
+        // Inicializa
         exibirPagina(pagina);
     }
 
     atualizarContadorDestaques();
+
+    // =============================
+    // 🔢 CONTADOR DE CARDS – NOVAS
+    // =============================
+    function atualizarContadorNovas() {
+        const container = document.getElementById("novas-container");
+        const contador = document.getElementById("contador-novas");
+        const btnAnterior = document.getElementById("anterior-novas");
+        const btnProximo = document.getElementById("proximo-novas");
+        const btnMostrarTodas = document.getElementById("mostrar-todas-novas");
+
+        if (!container || !contador || !btnMostrarTodas) return;
+
+        const cards = Array.from(container.children);
+        const totalCards = cards.length;
+        let pagina = 1;
+
+        function calcularPorPagina() {
+            const largura = window.innerWidth;
+            if (largura <= 374) return 1;
+            if (largura <= 480) return 2;
+            if (largura <= 1023) return 3;
+            if (largura <= 1279) return 4;
+            return 5;
+        }
+
+        function atualizarTextoContador() {
+            const mostrandoTodas = btnMostrarTodas.textContent === "Recolher";
+            if (mostrandoTodas) {
+                contador.innerHTML = `<span class="total">${totalCards}</span> Plataformas 🎮`;
+            } else {
+                const porPagina = calcularPorPagina();
+                const vistos = Math.min(pagina * porPagina, totalCards);
+                contador.innerHTML = `<span class="total">${vistos}</span> / <span class="total">${totalCards}</span> Plataformas 🎮`;
+            }
+        }
+
+        function exibirPagina(p) {
+            pagina = p;
+            atualizarTextoContador();
+        }
+
+        if (btnAnterior) {
+            btnAnterior.addEventListener("click", () => {
+                if (pagina > 1) {
+                    pagina--;
+                    exibirPagina(pagina);
+                }
+            });
+        }
+
+        if (btnProximo) {
+            btnProximo.addEventListener("click", () => {
+                const porPagina = calcularPorPagina();
+                const totalPaginas = Math.ceil(totalCards / porPagina);
+                if (pagina < totalPaginas) {
+                    pagina++;
+                    exibirPagina(pagina);
+                }
+            });
+        }
+
+        btnMostrarTodas.addEventListener("click", () => {
+            setTimeout(() => {
+                const mostrandoTodas = btnMostrarTodas.textContent === "Recolher";
+                if (!mostrandoTodas) {
+                    pagina = 1;
+                }
+                atualizarTextoContador();
+            }, 0);
+        });
+
+        window.addEventListener("resize", () => {
+            atualizarTextoContador();
+        });
+
+        exibirPagina(pagina);
+    }
+
     atualizarContadorNovas();
+
+    // ================================
+    // 🔢 CONTADOR DE CARDS – RESTANTES
+    // ================================
+    function atualizarContadorOutras() {
+        const container = document.getElementById("paginacao-container");
+        const contador = document.getElementById("contador-restantes");
+        const btnAnterior = document.getElementById("anterior");
+        const btnProximo = document.getElementById("proximo");
+        const btnMostrarTodas = document.getElementById("mostrar-todas");
+
+        if (!container || !contador || !btnMostrarTodas) return;
+
+        const cards = Array.from(container.children);
+        const totalCards = cards.length;
+        let pagina = 1;
+
+        function calcularPorPagina() {
+            const largura = window.innerWidth;
+            if (largura <= 374) return 1;
+            if (largura <= 480) return 2;
+            if (largura <= 1023) return 3;
+            if (largura <= 1279) return 4;
+            return 5;
+        }
+
+        function atualizarTextoContador() {
+            const mostrandoTodas = btnMostrarTodas.textContent === "Recolher";
+            if (mostrandoTodas) {
+                contador.innerHTML = `<span class="total">${totalCards}</span> Plataformas 🎮`;
+            } else {
+                const porPagina = calcularPorPagina();
+                const vistos = Math.min(pagina * porPagina, totalCards);
+                contador.innerHTML = `<span class="total">${vistos}</span> / <span class="total">${totalCards}</span> Plataformas 🎮`;
+            }
+        }
+
+        function exibirPagina(p) {
+            pagina = p;
+            atualizarTextoContador();
+        }
+
+        if (btnAnterior) {
+            btnAnterior.addEventListener("click", () => {
+                if (pagina > 1) {
+                    pagina--;
+                    exibirPagina(pagina);
+                }
+            });
+        }
+
+        if (btnProximo) {
+            btnProximo.addEventListener("click", () => {
+                const porPagina = calcularPorPagina();
+                const totalPaginas = Math.ceil(totalCards / porPagina);
+                if (pagina < totalPaginas) {
+                    pagina++;
+                    exibirPagina(pagina);
+                }
+            });
+        }
+
+        btnMostrarTodas.addEventListener("click", () => {
+            setTimeout(() => {
+                const mostrandoTodas = btnMostrarTodas.textContent === "Recolher";
+                if (!mostrandoTodas) {
+                    pagina = 1;
+                }
+                atualizarTextoContador();
+            }, 0);
+        });
+
+        window.addEventListener("resize", () => {
+            atualizarTextoContador();
+        });
+
+        exibirPagina(pagina);
+    }
+
     atualizarContadorOutras();
 
-    // 📋 Botão "Mostrar Todas"
-    let mostrandoTodas = false;
-
-    botaoTodos.addEventListener("click", () => {
-        mostrandoTodas = !mostrandoTodas;
-
-        if (mostrandoTodas) {
-            container.innerHTML = "";
-
-            // Filtrar apenas os cards que NÃO estão nos grupos "destaques" e "novas"
-            const cardsNaoAgrupados = cards.filter(card => {
-                const grupo = card.getAttribute("data-grupo");
-                const estaEmDestaques = grupo === "destaques";
-                const estaEmNovas = document.getElementById("novas-container").contains(card);
-                return !estaEmDestaques && !estaEmNovas;
-            });
-
-            cardsNaoAgrupados.forEach(card => container.appendChild(card));
-
-            anterior.disabled = true;
-            proximo.disabled = true;
-            botaoTodos.textContent = "Recolher";
-            paginaAtual.textContent = `Página 1`;
-        } else {
-            pagina = 1;
-            exibirPagina(pagina);
-            botaoTodos.textContent = "Mostrar Todas";
-            anterior.disabled = false;
-            proximo.disabled = false;
-        }
-    });
-
-    // ⬆️ Voltar ao topo
+    // ================================
+    // 🔷 BOTÃO VOLTAR AO TOPO
+    // ================================
     window.addEventListener("scroll", () => {
         botaoTopo.style.display = window.scrollY > 840 ? "flex" : "none";
     });
@@ -612,14 +502,14 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({ top: 0, behavior: "auto" });
     });
 
-    // Pesquisar
+    // ================================
+    // 🔷 PESQUISA POR NOME
+    // ================================
     const campoPesquisa = document.getElementById("pesquisa");
     const secaoPrincipal = document.getElementById("todas-as-plataformas");
     const secaoResultados = document.getElementById("resultado-pesquisa");
     const containerFiltrados = document.getElementById("cards-filtrados");
-
     const todosCards = Array.from(document.querySelectorAll(".card"));
-    const containerOriginal = todosCards[0]?.parentElement;
 
     campoPesquisa.addEventListener("input", () => {
         const termo = campoPesquisa.value.trim().toLowerCase();
@@ -628,8 +518,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!termo) {
             secaoResultados.style.display = "none";
             secaoPrincipal.style.display = "";
-
-            // Reorganiza os cards nos seus grupos originais
             todosCards.forEach(card => {
                 const grupo = card.getAttribute("data-grupo");
                 const dataStr = card.getAttribute("data-data");
@@ -640,7 +528,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const agora = new Date();
                     const dataCard = new Date(dataStr);
                     const diffMs = agora - dataCard;
-                    const limiteMs = 7 * 24 * 60 * 60 * 1000; // 7 dias
+                    const limiteMs = 7 * 24 * 60 * 60 * 1000;
 
                     if (!isNaN(dataCard.getTime()) && diffMs <= limiteMs) {
                         document.getElementById("novas-container").appendChild(card);
@@ -651,7 +539,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.getElementById("paginacao-container").appendChild(card);
                 }
             });
-
             return;
         }
 
