@@ -200,12 +200,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     container.style.flexWrap = "nowrap";
                     cards.forEach(card => card.style.display = "flex");
+
                     pagina = 1;
                     exibirPagina(pagina);
 
                     btnTodas.textContent = "Mostrar Todas";
-                    btnAnterior.disabled = false;
-                    btnProximo.disabled = false;
+
+                    // ✅ Corrigir estado dos botões com base na nova paginação
+                    const porPagina = calcularPorPagina();
+                    const totalPaginas = Math.ceil(cards.length / porPagina);
+
+                    if (btnAnterior) btnAnterior.disabled = pagina === 1;
+                    if (btnProximo) btnProximo.disabled = pagina >= totalPaginas;
                 }
             });
         }
