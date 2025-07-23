@@ -216,6 +216,24 @@ span {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.mensagem-nenhuma-nova {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    color: red;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.75rem;
+}
+
+.mensagem-nenhuma-nova-text {
+    color: white;
+    font-size: 0.875rem;
+}
+
 /* === VOLTAR AO TOPO === */
 .voltar-topo {
     display: none;
@@ -280,37 +298,6 @@ span {
 .carrossel .card {
     flex: 0 0 auto;
     width: calc((100% - 4rem) / 5);
-}
-
-/*=========================================================
-ATIVA SWIPE COM O DEDO EM DISPOSITIVOS MÓVEIS
-=========================================================*/
-@media (max-width: 1024px) {
-
-    .carrossel {
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-    }
-
-    .carrossel::-webkit-scrollbar {
-        display: none;
-    }
-
-    .card {
-        flex: 0 0 100%;
-        scroll-snap-align: center;
-    }
-
-    #anterior-destaques,
-    #proximo-destaques,
-    #anterior-novas,
-    #proximo-novas,
-    #anterior,
-    #proximo {
-        display: none;
-    }
 }
 
 /* === MOSTRAR TODAS === */
@@ -452,6 +439,8 @@ footer {
 }
 
 .qrcode img {
+    padding: 10px;
+    background-color: white;
     max-width: 40%;
     width: 180px;
     height: auto;

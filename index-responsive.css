@@ -121,3 +121,38 @@ DESKTOP PADRÃO / TABLET DEITADO
         max-width: 500px;
     }
 }
+
+/*=========================================================
+ATIVA SWIPE COM O DEDO EM DISPOSITIVOS MÓVEIS
+=========================================================*/
+@media (max-width: 1024px) {
+
+    .carrossel {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    .carrossel::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+    }
+
+    #anterior-destaques,
+    #proximo-destaques,
+    #anterior-novas,
+    #proximo-novas,
+    #anterior,
+    #proximo {
+        display: none;
+    }
+
+    .mensagem-nenhuma-nova {
+        max-width: 220px;
+    }
+}

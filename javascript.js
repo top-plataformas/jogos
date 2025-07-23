@@ -67,21 +67,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // ================================
     // 🔷 ORGANIZAÇÃO DE CARDS
     // ================================
-cards.sort((a, b) => {
-    const grupoA = a.getAttribute("data-grupo");
-    const grupoB = b.getAttribute("data-grupo");
+    cards.sort((a, b) => {
+        const grupoA = a.getAttribute("data-grupo");
+        const grupoB = b.getAttribute("data-grupo");
 
-    if (grupoA === "destaques" && grupoB === "destaques") {
-        const posA = parseInt(a.getAttribute("data-posicao")) || 0;
-        const posB = parseInt(b.getAttribute("data-posicao")) || 0;
-        return posA - posB;
-    }
+        if (grupoA === "destaques" && grupoB === "destaques") {
+            const posA = parseInt(a.getAttribute("data-posicao")) || 0;
+            const posB = parseInt(b.getAttribute("data-posicao")) || 0;
+            return posA - posB;
+        }
 
-    // Mantém ordenação por data para os demais grupos
-    const dataA = new Date(a.getAttribute("data-data") || 0);
-    const dataB = new Date(b.getAttribute("data-data") || 0);
-    return dataB - dataA;
-});
+        // Mantém ordenação por data para os demais grupos
+        const dataA = new Date(a.getAttribute("data-data") || 0);
+        const dataB = new Date(b.getAttribute("data-data") || 0);
+        return dataB - dataA;
+    });
 
 
     cards.forEach(card => container.appendChild(card));
@@ -109,9 +109,46 @@ cards.sort((a, b) => {
         }
     });
 
-    // ================================
+    // =======================
+    // NENHUMA PLATAFORMA NOVA
+    // =======================
+    const novasContainer = document.getElementById("novas-container");
+    const mensagemNenhumaNova = document.querySelector(".mensagem-nenhuma-nova");
+
+    if (novasContainer && mensagemNenhumaNova) {
+        const cards = novasContainer.querySelectorAll(".card");
+
+        if (cards.length === 0) {
+            mensagemNenhumaNova.style.display = "flex";
+        } else {
+            mensagemNenhumaNova.style.display = "none";
+
+            // Se houver apenas 1 card, agenda reload quando ele vencer
+            if (cards.length === 1) {
+                const dataStr = cards[0].getAttribute("data-data");
+                if (dataStr) {
+                    const dataCard = new Date(dataStr);
+                    const validadeMs = 7 * 24 * 60 * 60 * 1000;
+                    const agora = new Date();
+                    const tempoRestante = validadeMs - (agora - dataCard);
+
+                    if (tempoRestante > 0) {
+                        setTimeout(() => {
+                            console.log("✅ Último card novo venceu. Recarregando...");
+                            location.reload();
+                        }, tempoRestante);
+                    } else {
+                        // Se já venceu, recarrega imediatamente
+                        location.reload();
+                    }
+                }
+            }
+        }
+    }
+
+    // ===================================
     // 🔷 FUNÇÃO DE PAGINAÇÃO REUTILIZÁVEL
-    // ================================
+    // ===================================
     function paginarGrupo(config) {
         const {
             containerId,
