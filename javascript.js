@@ -67,11 +67,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // ================================
     // 🔷 ORGANIZAÇÃO DE CARDS
     // ================================
-    cards.sort((a, b) => {
-        const dataA = new Date(a.getAttribute("data-data") || 0);
-        const dataB = new Date(b.getAttribute("data-data") || 0);
-        return dataB - dataA;
-    });
+cards.sort((a, b) => {
+    const grupoA = a.getAttribute("data-grupo");
+    const grupoB = b.getAttribute("data-grupo");
+
+    if (grupoA === "destaques" && grupoB === "destaques") {
+        const posA = parseInt(a.getAttribute("data-posicao")) || 0;
+        const posB = parseInt(b.getAttribute("data-posicao")) || 0;
+        return posA - posB;
+    }
+
+    // Mantém ordenação por data para os demais grupos
+    const dataA = new Date(a.getAttribute("data-data") || 0);
+    const dataB = new Date(b.getAttribute("data-data") || 0);
+    return dataB - dataA;
+});
+
+
     cards.forEach(card => container.appendChild(card));
 
     const todosOsCards = document.querySelectorAll("#paginacao-container .card");
