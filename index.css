@@ -221,12 +221,13 @@ span {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 40px auto;
     color: red;
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
     line-height: 1.75rem;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .mensagem-nenhuma-nova-text {
