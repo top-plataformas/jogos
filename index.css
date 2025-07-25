@@ -228,6 +228,7 @@ span {
     line-height: 1.75rem;
     padding: 20px;
     border-radius: 10px;
+    margin: auto;
 }
 
 .mensagem-nenhuma-nova-text {
